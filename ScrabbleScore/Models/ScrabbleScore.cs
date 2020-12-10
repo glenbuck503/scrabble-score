@@ -36,12 +36,9 @@ namespace ScrabbleScore.Models
     public int ScoreCalculator(string word)
     {
       int score = 0;
-      // string upperWord = word.ToUpper();
-      // char[] splitWord = upperWord.ToCharArray();
       foreach (char letter in word)
       {
         score += GetScore(Char.ToUpper(letter));
-        Console.WriteLine(letter);
       }
       return score;
     } 
