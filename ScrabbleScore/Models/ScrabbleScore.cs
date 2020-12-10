@@ -6,6 +6,7 @@ namespace ScrabbleScore.Models
   public class Word
   {
 
+    // Backend Dictionary //
     private static Dictionary<char, int> letterScore = new Dictionary<char, int> ()
     {
       {'A', 1}, {'E', 1}, {'I', 1}, {'O', 1}, {'U', 1}, {'L', 1}, {'N', 1}, {'R', 1}, {'S', 1}, {'T', 1},
@@ -17,6 +18,7 @@ namespace ScrabbleScore.Models
       {'Q', 10}, {'Z', 10}
     };  
 
+    // Getter Method //
     public static int GetScore(char letter)
     {
       int result;
@@ -29,6 +31,20 @@ namespace ScrabbleScore.Models
         return 0;
       }
     } 
-  
+
+    // Calc Score Method //
+    public int ScoreCalculator(string word)
+    {
+      int score = 0;
+      // string upperWord = word.ToUpper();
+      // char[] splitWord = upperWord.ToCharArray();
+      foreach (char letter in word)
+      {
+        score += GetScore(Char.ToUpper(letter));
+        Console.WriteLine(letter);
+      }
+      return score;
+    } 
+
   }
 }
